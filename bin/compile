@@ -54,7 +54,10 @@ cd ${BUILD_DIR}
 export ANT_OPTS="-Xmx512m"
 
 # build app
-BUILDCMD="$ANT_HOME/bin/ant download-ivy install-ivy jar"
+BUILDCMD="$ANT_HOME/bin/ant download-ivy"
+echo "-----> executing $BUILDCMD"
+
+BUILDCMD="$ANT_HOME/bin/ant jar"
 echo "-----> executing $BUILDCMD"
 
 $BUILDCMD 2>&1 | indent
