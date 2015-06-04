@@ -61,12 +61,10 @@ $PRE_BUILDCMD 2>&1 | indent
 BUILDCMD="$ANT_HOME/bin/ant jar"
 echo "-----> executing BUILD $BUILDCMD"
 
-$BUILDCMD 2>&1 | indent
-ls -al ${PWD}  | indent
+$BUILDCMD 2>&1
 
-ls -al ${BUILD_DIR}  | indent
-
-if [ "${PIPESTATUS[*]}" != "0 0" ]; then
+if [ $? != 0 ]; then
   echo " !     Failed to build app with Apache Ant"
   exit 1
 fi
+
