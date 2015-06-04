@@ -47,6 +47,10 @@ if [ ! -f $BUILD_DIR/build.xml ] ; then
 	echo "Failed to build app with Apache Ant"
 fi
 
+echo "-----> Using JAVA_HOME $JAVA_HOME....."
+
+echo "-----> Using Java"
+java -version | indent
 
 # change to build dir to run ant
 cd ${BUILD_DIR}
