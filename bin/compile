@@ -17,6 +17,9 @@ CACHE_DIR=$2
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
+export JAVA_HOME="${BUILD_DIR}/.jdk"
+export JAVA_PATH="${BUILD_DIR}/.jdk/bin"
+
 function indent() {
   c='s/^/       /'
   case $(uname) in
