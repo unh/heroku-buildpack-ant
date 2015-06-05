@@ -19,6 +19,7 @@ BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
 export JAVA_HOME="${BUILD_DIR}/.jdk"
 export JAVA_PATH="${BUILD_DIR}/.jdk/bin"
+export PATH="${build_dir}/.jdk/bin:${PATH}"
 
 function indent() {
   c='s/^/       /'
