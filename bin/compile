@@ -28,6 +28,9 @@ for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
   fi
 done
 
+pwd
+ls -la
+
 #create the cache dir if it doesn't exist
 mkdir -p $VENDORING_DIR
 mkdir -p $IVY_PATH
@@ -90,6 +93,7 @@ $BUILDCMD 2>&1
 
 RESULT="$?"
 
+pwd
 ls -la
 
 # Repack Play! framework into cache
