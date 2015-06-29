@@ -86,6 +86,9 @@ $PRE_BUILDCMD 2>&1 | indent
 BUILDCMD="$ANT_HOME/bin/ant jar"
 echo "-----> executing BUILD $BUILDCMD"
 
+$BUILDCMD 2>&1
+
+RESULT = $?
 # Repack Play! framework into cache
 mkdir -p $CACHE_DIR
 for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
@@ -93,9 +96,7 @@ for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
   cp -r $DIR $CACHE_DIR/$DIR
 done
 
-$BUILDCMD 2>&1
-
-if [ $? != 0 ]; then
+if [ $RESULT != 0 ]; then
   echo " !     Failed to build app with Apache Ant"
   exit 1
 fi
