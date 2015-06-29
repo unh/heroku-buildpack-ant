@@ -37,7 +37,7 @@ BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
 export JAVA_HOME="${BUILD_DIR}/.jdk"
 export JAVA_PATH="${BUILD_DIR}/.jdk/bin"
-export PATH="${build_dir}/.jdk/bin:${PATH}"
+export PATH="${BUILD_DIR}/.jdk/bin:${PATH}"
 
 function indent() {
   c='s/^/       /'
@@ -89,6 +89,9 @@ echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1
 
 RESULT="$?"
+
+ls -la
+
 # Repack Play! framework into cache
 mkdir -p $CACHE_DIR
 for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
