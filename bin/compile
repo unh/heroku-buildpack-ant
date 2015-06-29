@@ -88,7 +88,7 @@ echo "-----> executing BUILD $BUILDCMD"
 
 $BUILDCMD 2>&1
 
-RESULT = $?
+RESULT="$?"
 # Repack Play! framework into cache
 mkdir -p $CACHE_DIR
 for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
