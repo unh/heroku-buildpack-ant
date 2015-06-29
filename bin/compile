@@ -26,7 +26,7 @@ cd $BUILD_DIR
 # Unpack ivy cache
 rm -rf IVY_PATH
 if [ -d $CACHE_DIR/$IVY ]; then
-	cp -r $CACHE_DIR/$IVY IVY_PATH
+	cp -r $CACHE_DIR/$IVY $IVY_PATH
 fi
 
 # Unpack cache
