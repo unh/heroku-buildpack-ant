@@ -16,10 +16,6 @@ CACHE_DIR=$2
 
 IVY_PATH=".ivy2"
 
-#create the cache dir if it doesn't exist
-mkdir -p $VENDORING_DIR
-mkdir -p $IVY_PATH
-
 # Change dir to handle relative paths
 cd $BUILD_DIR
 
@@ -30,6 +26,11 @@ for DIR in $VENDORING_DIR $IVY_PATH ; do
     cp -r $CACHE_DIR/$DIR $DIR
   fi
 done
+
+#create the cache dir if it doesn't exist
+mkdir -p $VENDORING_DIR
+mkdir -p $IVY_PATH
+
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
