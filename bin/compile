@@ -16,7 +16,7 @@ CACHE_DIR=$2
 
 IVY_PATH=".ivy2"
 VENDORING_PATH=".buildpack"
-ANT_PATH=".ant"
+ANT_PATH="lib"
 # Change dir to handle relative paths
 cd $BUILD_DIR
 
