@@ -16,11 +16,12 @@ CACHE_DIR=$2
 
 IVY_PATH=".ivy2"
 VENDORING_PATH=".buildpack"
+ANT_PATH=".ant"
 # Change dir to handle relative paths
 cd $BUILD_DIR
 
 # Unpack cache
-for DIR in $VENDORING_PATH $IVY_PATH ; do
+for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
   rm -rf $DIR
   if [ -d $CACHE_DIR/$DIR ]; then
     cp -r $CACHE_DIR/$DIR $DIR
@@ -87,7 +88,7 @@ echo "-----> executing BUILD $BUILDCMD"
 
 # Repack Play! framework into cache
 mkdir -p $CACHE_DIR
-for DIR in $VENDORING_PATH $IVY_PATH ; do
+for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
   rm -rf $CACHE_DIR/$DIR
   cp -r $DIR $CACHE_DIR/$DIR
 done
