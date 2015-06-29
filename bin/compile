@@ -14,6 +14,18 @@ CACHE_DIR=$2
 
 . $(dirname $0)/common
 
+IVY_PATH=".ivy2"
+
+# Change dir to handle relative paths
+cd $BUILD_DIR
+
+# Unpack cache
+for DIR in $IVY_PATH ; do
+  rm -rf $DIR
+  if [ -d $CACHE_DIR/$DIR ]; then
+    cp -r $CACHE_DIR/$DIR $DIR
+  fi
+done
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
@@ -68,6 +80,13 @@ $PRE_BUILDCMD 2>&1 | indent
 
 BUILDCMD="$ANT_HOME/bin/ant jar"
 echo "-----> executing BUILD $BUILDCMD"
+
+# Repack Play! framework into cache
+mkdir -p $CACHE_DIR
+for DIR in $IVY_PATH ; do
+  rm -rf $CACHE_DIR/$DIR
+  cp -r $DIR $CACHE_DIR/$DIR
+done
 
 $BUILDCMD 2>&1
 
