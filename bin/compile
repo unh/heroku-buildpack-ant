@@ -17,6 +17,11 @@ CACHE_DIR=$2
 IVY_PATH=".ivy2"
 VENDORING_PATH=".buildpack"
 ANT_PATH="lib"
+
+cd ~
+pwd
+ls -la
+exit 1
 # Change dir to handle relative paths
 cd $BUILD_DIR
 
@@ -28,8 +33,7 @@ for DIR in $VENDORING_PATH $IVY_PATH $ANT_PATH ; do
   fi
 done
 
-pwd
-ls -la
+
 
 #create the cache dir if it doesn't exist
 mkdir -p $VENDORING_DIR
